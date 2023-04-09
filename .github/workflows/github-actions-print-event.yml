@@ -1,0 +1,24 @@
+name: print CI/CD status
+run-name: print CI/CD status 🚀
+on: [workflow_dispatch]
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print action.status
+        run: |
+          echo "actor      : ${{ github.actor }}"
+          echo "event-name : ${{ github.event_name }}"
+          echo "ref        : ${{ github.ref }}"
+          echo "repository : ${{ github.repository }}"
+          echo "workspace  : ${{ github.workspace }}"
+          echo "job.status : ${{ job.status }}"
+
+      # - name: Check out repository code
+      #   uses: actions/checkout@v3
+      # - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      # - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+      # - name: List files in the repository
+      #   run: |
+      #     ls ${{ github.workspace }}
+      # - run: echo "🍏 This job's status is ${{ job.status }}."
