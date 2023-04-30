@@ -1,7 +1,7 @@
 name: build test
 run-name: build test 🚀
 # Event
-on: [push]
+on: [workflow_dispatch]
 
 jobs:
   test:

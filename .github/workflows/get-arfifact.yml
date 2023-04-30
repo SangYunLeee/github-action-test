@@ -1,0 +1,23 @@
+name: get-artifact
+run-name: get-artifact 🚀
+# Event
+on: [workflow_dispatch]
+
+jobs:
+  upload-artifact:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build project
+        run: echo "HELLOW" > buildFile.txt
+      - uses: actions/upload-artifact@v3
+        with:
+          name: my-artifact
+          path: . # or path/to/artifact
+  download-artifact:
+    needs: upload-artifact
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: my-artifact
+      - run : ls -al
